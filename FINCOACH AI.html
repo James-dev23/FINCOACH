@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINCOACH/AI</title>
+       <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- CUSTOM FONT CLASSES -->
+    <style>
+      .font-montserrat {
+        font-family: "Montserrat", sans-serif;
+      }
+      .font-poppins {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+</head>
+<body>
+
+     <!-- NAVBAR -->
+    <nav
+      class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur shadow z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center"
+      >
+        <!-- LOGO -->
+        <h1 class="text-xl sm:text-2xl font-montserrat font-bold text-blue-600">
+          FinCoach
+        </h1>
+
+        <!-- DESKTOP MENU -->
+        <div class="hidden md:flex space-x-6 text-gray-700 font-medium">
+          <a href="Index.html" class="hover:text-blue-600">HOME</a>
+          <a href="lessons.html" class="hover:text-blue-600">LESSONS</a>
+          <a href="G-learning.html" class="hover:text-blue-600">GAMIFIED LEARNING</a>
+          <a href="FINCOACH AI.html" class="hover:text-blue-600">FINCOACH AI</a>
+          <a href="Dashboard.html" class="hover:text-blue-600">DASHBOARD</a>
+        </div>
+
+
+        <!-- MOBILE HAMBURGER BUTTON -->
+        <button
+          id="menu-btn"
+          class="md:hidden text-gray-700 focus:outline-none"
+        >
+          <svg
+            class="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- MOBILE MENU -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg w-full">
+        <div
+          class="px-6 py-4 flex flex-col space-y-4 text-gray-700 font-medium"
+        >
+          <a href="Index.html" class="hover:text-blue-600">HOME</a>
+          <a href="lessons.html" class="hover:text-blue-600">LESSONS</a>
+          <a href="G-learning.html" class="hover:text-blue-600">GAMIFIED LEARNING</a>
+          <a href="FINCOACH AI.html" class="hover:text-blue-600">FINCOACH AI</a>
+          <a href="Dashboard.html" class="hover:text-blue-600">DASHBOARD</a>
+        </div>
+      </div>
+    </nav>
+
+   <!-- FINCOACH AI SECTION -->
+<section id="ai" class="py-32 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <h2 class="text-3xl sm:text-4xl font-bold text-blue-600 font-montserrat">
+        Your AI FinCoach
+      </h2>
+      <p class="text-gray-600 mt-3 text-base sm:text-lg max-w-2xl mx-auto">
+        Ask any financial question in your preferred language. FinCoach gives instant guidance and tips.
+      </p>
+    </div>
+
+    <!-- Language Selector -->
+    <div class="flex justify-center mb-6">
+      <select id="languageSelect" class="border border-gray-300 rounded-xl px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <option value="English">English</option>
+        <option value="Pidgin">Pidgin</option>
+        <option value="Yoruba">Yoruba</option>
+        <option value="Igbo">Igbo</option>
+        <option value="Hausa">Hausa</option>
+        <option value="French">French</option>
+      </select>
+    </div>
+
+    <!-- Chat Box -->
+    <div class="bg-white shadow-lg rounded-2xl p-6 flex flex-col space-y-4 h-[500px] sm:h-[600px] overflow-y-auto mb-6" id="chatBox">
+      <div class="flex justify-start">
+        <div class="bg-blue-100 text-gray-800 p-4 rounded-2xl max-w-xs sm:max-w-sm">
+          Hi! I’m your FinCoach AI. Ask me anything about savings, budgeting, investing, or managing money.
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Suggestions -->
+    <div class="flex flex-wrap justify-center gap-3 mb-6">
+      <button class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full hover:bg-blue-200 transition" onclick="askAI('How do I save money?')">How do I save money?</button>
+      <button class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full hover:bg-blue-200 transition" onclick="askAI('How do I budget?')">How do I budget?</button>
+      <button class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full hover:bg-blue-200 transition" onclick="askAI('Investing for beginners')">Investing for beginners</button>
+      <button class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full hover:bg-blue-200 transition" onclick="askAI('Best savings tips')">Best savings tips</button>
+    </div>
+
+    <!-- User Input -->
+    <div class="flex gap-2">
+      <input type="text" id="userInput" placeholder="Type your question here..." class="flex-1 border border-gray-300 rounded-2xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+      <button id="sendBtn" class="bg-blue-600 text-white px-6 py-2 rounded-2xl hover:bg-blue-700 transition">Send</button>
+    </div>
+
+  </div>
+</section>
+
+<script>
+const chatBox = document.getElementById('chatBox');
+const userInput = document.getElementById('userInput');
+const sendBtn = document.getElementById('sendBtn');
+const languageSelect = document.getElementById('languageSelect');
+
+// Your Gemini API key (frontend only for demo!)
+const GEMINI_API_KEY = 'AIzaSyC_e23DHaGE-VGDIuPEl6v-OYRbKjnyH1k';
+
+function addMessage(message, sender='user', typing=false) {
+  const container = document.createElement('div');
+  container.classList.add('flex', sender === 'user' ? 'justify-end' : 'justify-start');
+
+  const messageDiv = document.createElement('div');
+  messageDiv.classList.add('p-4', 'rounded-2xl', 'max-w-xs', 'sm:max-w-sm', 'break-words');
+
+  if(sender === 'user') {
+    messageDiv.classList.add('bg-gray-200', 'text-gray-800');
+  } else {
+    messageDiv.classList.add('bg-blue-100', 'text-gray-800');
+  }
+
+  if(typing) {
+    messageDiv.textContent = '';
+  } else {
+    messageDiv.textContent = message;
+  }
+
+  container.appendChild(messageDiv);
+  chatBox.appendChild(container);
+  chatBox.scrollTop = chatBox.scrollHeight;
+  return messageDiv;
+}
+
+sendBtn.addEventListener('click', () => {
+  const text = userInput.value.trim();
+  if(text) {
+    askAI(text);
+    userInput.value = '';
+  }
+});
+
+userInput.addEventListener('keypress', (e) => {
+  if(e.key === 'Enter') sendBtn.click();
+});
+
+// Send question to Gemini API
+async function askAI(userText) {
+  addMessage(userText, 'user');
+  const typingDiv = addMessage('', 'ai', true);
+  const language = languageSelect.value;
+
+  try {
+    const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-goog-api-key': GEMINI_API_KEY
+      },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: `Answer in ${language}: ${userText}` }] }],
+        model: 'gemini-2.5-flash'
+      })
+    });
+
+    const data = await response.json();
+    const aiMessage = data.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, no response.";
+
+    // Typing animation
+    let index = 0;
+    const speed = 20;
+    const interval = setInterval(() => {
+      typingDiv.textContent = aiMessage.slice(0, index) + '|';
+      index++;
+      if(index > aiMessage.length) {
+        clearInterval(interval);
+        typingDiv.textContent = aiMessage;
+      }
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }, speed);
+
+  } catch (err) {
+    typingDiv.textContent = "Sorry, something went wrong.";
+    console.error(err);
+  }
+}
+</script>
+
+<!-- HAMBURGER JS -->
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+
+    
+</body>
+</html>

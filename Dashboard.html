@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINCOACH/DASHBOARD</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+<!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- CUSTOM FONT CLASSES -->
+    <style>
+      .font-montserrat {
+        font-family: "Montserrat", sans-serif;
+      }
+      .font-poppins {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body class="bg-gray-50 text-gray-800">
+    
+<!-- FINCOACH DASHBOARD PAGE -->
+
+  <!-- SPACE FOR NAVBAR -->
+  <div class="h-20">
+     <!-- NAVBAR -->
+    <nav
+      class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur shadow z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center"
+      >
+        <!-- LOGO -->
+        <h1 class="text-xl sm:text-2xl font-montserrat font-bold text-blue-600">
+          FinCoach
+        </h1>
+
+        <!-- DESKTOP MENU -->
+        <div class="hidden md:flex space-x-6 text-gray-700 font-medium">
+          <a href="Index.html" class="hover:text-blue-600">HOME</a>
+          <a href="lessons.html" class="hover:text-blue-600">LESSONS</a>
+          <a href="G-learning.html" class="hover:text-blue-600">GAMIFIED LEARNING</a>
+          <a href="FINCOACH AI.html" class="hover:text-blue-600">FINCOACH AI</a>
+          <a href="Dashboard.html" class="hover:text-blue-600">DASHBOARD</a>
+        </div>
+
+        <!-- MOBILE HAMBURGER BUTTON -->
+        <button
+          id="menu-btn"
+          class="md:hidden text-gray-700 focus:outline-none"
+        >
+          <svg
+            class="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- MOBILE MENU -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg w-full">
+        <div
+          class="px-6 py-4 flex flex-col space-y-4 text-gray-700 font-medium"
+        >
+         <a href="Index.html" class="hover:text-blue-600">HOME</a>
+          <a href="lessons.html" class="hover:text-blue-600">LESSONS</a>
+          <a href="G-learning.html" class="hover:text-blue-600">GAMIFIED LEARNING</a>
+          <a href="FINCOACH AI.html" class="hover:text-blue-600">FINCOACH AI</a>
+          <a href="Dashboard.html" class="hover:text-blue-600">DASHBOARD</a>
+
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- DASHBOARD WRAPPER -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6">
+
+    <!-- TOP BAR with USER + NOTIFICATIONS -->
+    <div class="flex justify-between items-center mb-6">
+
+      <!-- Greeting -->
+      <h1 class="text-2xl sm:text-3xl font-bold text-blue-600" data-aos="fade-right">
+        Welcome Back, FinCoach Learner 👋
+      </h1>
+
+      <!-- USER + NOTIFICATIONS -->
+      <div class="flex items-center gap-6">
+
+        <!-- Notification Bell -->
+        <div class="relative">
+          <button id="notifyBtn" class="relative text-2xl">
+            🔔
+            <span class="absolute -top-2 -right-1 bg-red-500 text-white w-5 h-5 text-xs rounded-full flex items-center justify-center">
+              3
+            </span>
+          </button>
+
+          <!-- Notification Panel -->
+          <div id="notifyPanel"
+            class="hidden absolute right-0 mt-3 w-64 bg-white shadow-lg rounded-xl p-4 z-40">
+            <h3 class="font-semibold mb-2">Notifications</h3>
+            <ul class="text-sm space-y-2">
+              <li class="bg-blue-50 p-2 rounded">🎯 New lesson unlocked</li>
+              <li class="bg-blue-50 p-2 rounded">🏆 You earned a new badge</li>
+              <li class="bg-blue-50 p-2 rounded">📈 Your financial score improved</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- USER ICON -->
+        <div class="relative">
+          <button id="userBtn" class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl">
+            U
+          </button>
+
+          <!-- User Menu -->
+          <div id="userMenu"
+            class="hidden absolute right-0 mt-3 bg-white shadow-lg rounded-xl w-40 p-4 text-sm">
+            <a href="#" class="block py-2">Profile</a>
+            <a href="#" class="block py-2">Settings</a>
+            <a href="#" class="block py-2 text-red-500">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRID ROW 1: QUICK STATS CARDS -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+      <!-- Financial Literacy Score -->
+      <div data-aos="zoom-in" class="p-6 bg-white rounded-2xl shadow hover:shadow-xl transition">
+        <h3 class="text-sm text-gray-500">Financial Literacy Score</h3>
+        <p class="text-3xl font-bold text-blue-600 mt-2">78%</p>
+        <p class="text-xs text-green-600 mt-2">▲ Improved by 12% this week</p>
+      </div>
+
+      <!-- Lessons Completed -->
+      <div data-aos="zoom-in" data-aos-delay="100"
+        class="p-6 bg-white rounded-2xl shadow hover:shadow-xl transition">
+        <h3 class="text-sm text-gray-500">Lessons Completed</h3>
+        <p class="text-3xl font-bold text-blue-600 mt-2">32</p>
+        <p class="text-xs text-green-600 mt-2">+4 new this week</p>
+      </div>
+
+      <!-- XP Earned -->
+      <div data-aos="zoom-in" data-aos-delay="200"
+        class="p-6 bg-white rounded-2xl shadow hover:shadow-xl transition">
+        <h3 class="text-sm text-gray-500">XP Earned</h3>
+        <p class="text-3xl font-bold text-blue-600 mt-2">4,850 XP</p>
+        <p class="text-xs text-green-600 mt-2">+650 XP this week</p>
+      </div>
+    </div>
+
+    <!-- GRID ROW 2: GRAPHS -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
+
+      <!-- Learning Progress Graph -->
+      <div class="bg-white p-6 rounded-2xl shadow" data-aos="fade-up">
+        <h3 class="font-semibold mb-3 text-center">Learning Progress</h3>
+        <canvas id="learningChart" height="150"></canvas>
+      </div>
+
+      <!-- Financial Literacy Graph -->
+      <div class="bg-white p-6 rounded-2xl shadow" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="font-semibold mb-3 text-center">Financial Literacy Score</h3>
+        <canvas id="financeChart" height="150"></canvas>
+      </div>
+    </div>
+
+    <!-- SAVINGS CHALLENGE -->
+    <div class="mt-10 bg-white p-6 rounded-2xl shadow" data-aos="fade-up">
+      <h3 class="font-semibold mb-4">Savings Challenge Progress</h3>
+      <div class="w-full bg-gray-200 h-4 rounded-full overflow-hidden">
+        <div class="bg-blue-600 h-full rounded-full" style="width: 65%"></div>
+      </div>
+      <p class="text-sm mt-2 text-gray-600">You have saved 65% of your target!</p>
+    </div>
+
+  </section>
+
+  <!-- CORE FEATURES / ONBOARDING SECTION -->
+<section class="py-20 bg-gray-50" id="features">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+    <h2 class="text-3xl sm:text-4xl font-montserrat font-bold text-center text-blue-600 mb-10">
+      Core Features to Get You Started
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- CARD 1 -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition cursor-pointer">
+        <h3 class="text-lg font-semibold mb-3 text-blue-600">📚 Micro Lessons</h3>
+        <p class="text-gray-600 text-sm">
+          Short, simple financial lessons designed for busy young Africans.
+          Learn budgeting, saving, investing & debt management in minutes.
+        </p>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition cursor-pointer">
+        <h3 class="text-lg font-semibold mb-3 text-blue-600">🤖 AI FinCoach</h3>
+        <p class="text-gray-600 text-sm">
+          Ask money questions in English, Yoruba, Igbo, Hausa, Pidgin or French.
+          Your AI coach explains everything in plain language instantly.
+        </p>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition cursor-pointer">
+        <h3 class="text-lg font-semibold mb-3 text-blue-600">🎮 Gamified Learning</h3>
+        <p class="text-gray-600 text-sm">
+          Earn XP, unlock badges and complete challenges that make learning fun,
+          engaging and competitive.
+        </p>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition cursor-pointer">
+        <h3 class="text-lg font-semibold mb-3 text-blue-600">📈 Financial Health Score</h3>
+        <p class="text-gray-600 text-sm">
+          Track your money habits. View your score for savings, discipline,
+          debt management & earning growth.
+        </p>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition cursor-pointer">
+        <h3 class="text-lg font-semibold mb-3 text-blue-600">🌍 Multi-Language Support</h3>
+        <p class="text-gray-600 text-sm">
+          Learn in the language you're most comfortable with — English, Pidgin,
+          Yoruba, Igbo, Hausa, French & more.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROFILE MODAL -->
+<div id="profileModal"
+  class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+
+  <div class="bg-white w-80 p-6 rounded-2xl shadow-lg animate-fadeIn relative">
+
+    <h2 class="text-xl font-bold mb-4 text-center text-blue-600">Your Profile</h2>
+
+    <div class="space-y-3 text-sm">
+      <button class="w-full bg-blue-50 p-3 rounded-lg text-left">👤 Profile</button>
+      <button class="w-full bg-blue-50 p-3 rounded-lg text-left">⚙️ Settings</button>
+      <button class="w-full bg-blue-50 p-3 rounded-lg text-left">🔐 Account</button>
+      <button class="w-full bg-red-100 p-3 rounded-lg text-left text-red-600">🚪 Logout</button>
+    </div>
+
+    <button id="closeModal"
+      class="mt-5 w-full py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-800 transition">
+      Close
+    </button>
+  </div>
+</div>
+
+<!-- Modal Animation -->
+<style>
+  .animate-fadeIn {
+    animation: fadeIn 0.25s ease-out;
+  }
+  @keyframes fadeIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+</style>
+
+
+<!-- AI DAILY TIP (place in your dashboard where you had it) -->
+<div class="mt-10 bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition" data-aos="fade-up">
+  <h3 class="font-semibold mb-4 text-blue-600">💡 AI Daily Money Tip</h3>
+
+  <div id="aiTipContainer" class="flex flex-col gap-3">
+    <p id="aiTip" class="text-gray-700 text-sm leading-relaxed">Loading your smart tip for today...</p>
+    <div id="aiTipSpinner" class="hidden">
+      <span class="inline-block animate-spin w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full"></span>
+      <span class="text-sm text-gray-500 ml-2 inline-block">Fetching...</span>
+    </div>
+  </div>
+
+  <div class="mt-4 flex gap-2">
+    <button id="refreshTip" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm hover:bg-blue-700 transition">Refresh Tip</button>
+    <button id="mockTipBtn" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm hover:bg-gray-300 transition">Use Mock Tip</button>
+  </div>
+</div>
+
+<script>
+  // CONFIG
+  const GEMINI_KEY = 'AIzaSyCwBCA3GoL0VQuj0dkwaQzeL4AQ0YgVmus'; // frontend-only demo; not secure for production
+  const TIMEOUT_MS = 8000; // fail fast so UI fallback quickly
+
+  // UI refs
+  const aiTip = document.getElementById('aiTip');
+  const spinner = document.getElementById('aiTipSpinner');
+  const refreshBtn = document.getElementById('refreshTip');
+  const mockBtn = document.getElementById('mockTipBtn');
+
+  // A few reliable fallback tips (used if API fails)
+  const fallbackTips = [
+    "Start by saving 10% of any money you receive. Small steps matter.",
+    "Write down all expenses for a week — you'll spot things you can cut.",
+    "Set a small daily saving target (e.g. ₦200) and add to it daily.",
+    "Use a separate jar or wallet for savings — physical separation helps.",
+    "Automatic saving (if available) makes building a habit easier."
+  ];
+
+  // Show spinner
+  function showSpinner(show = true) {
+    spinner.classList.toggle('hidden', !show);
+  }
+
+  // Utility: timeout wrapper for fetch
+  function fetchWithTimeout(resource, options = {}) {
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), TIMEOUT_MS);
+    return fetch(resource, { ...options, signal: controller.signal })
+      .finally(() => clearTimeout(id));
+  }
+
+  // Try to call Gemini (frontend). If anything fails, fallback to mockTip()
+  async function fetchAiTip() {
+    aiTip.innerText = 'Thinking... 🤔';
+    showSpinner(true);
+
+    // Build request body for the generative language API.
+    // NOTE: different Gemini endpoints/formats exist; this is a common v1beta pattern.
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5:generateContent?key=${GEMINI_KEY}`;
+
+    const requestBody = {
+      // keep content short to save tokens
+      contents: [
+        {
+          parts: [
+            { text: "Provide one short, simple, practical daily financial tip for young Africans (1-2 sentences)." }
+          ]
+        }
+      ],
+      // optional tuning: maxOutputTokens etc.
+      // model: 'gemini-2.5' // sometimes required server-side; here endpoint includes model
+    };
+
+    try {
+      const res = await fetchWithTimeout(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(requestBody)
+      });
+
+      if (!res.ok) {
+        console.error('Gemini API returned non-OK status:', res.status, res.statusText);
+        // read body for debug
+        let errText = await res.text().catch(()=>null);
+        console.error('Response body:', errText);
+        throw new Error('API returned non-OK status');
+      }
+
+      const data = await res.json();
+      // Attempt to extract answer robustly
+      const aiResponse =
+        data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+        data?.output?.[0]?.content?.text ||
+        data?.result?.candidates?.[0]?.content?.parts?.[0]?.text ||
+        null;
+
+      if (aiResponse && aiResponse.trim().length) {
+        aiTip.innerText = aiResponse.trim();
+        showSpinner(false);
+        return;
+      }
+
+      console.warn('No text found in Gemini response, falling back.');
+      throw new Error('Empty response');
+
+    } catch (err) {
+      console.error('AI tip fetch error:', err);
+      // fallback
+      showSpinner(false);
+      useMockTip();
+    }
+  }
+
+  // Mock fallback: pick a random fallback tip
+  function useMockTip() {
+    const tip = fallbackTips[Math.floor(Math.random() * fallbackTips.length)];
+    aiTip.innerText = tip;
+  }
+
+  // Wire up buttons
+  refreshBtn.addEventListener('click', () => fetchAiTip());
+  mockBtn.addEventListener('click', () => useMockTip());
+
+  // Load tip on page load
+  fetchAiTip();
+</script>
+
+  <!-- INIT AOS -->
+  <script>
+    AOS.init();
+
+    // NOTIFICATION TOGGLE
+    document.getElementById("notifyBtn").onclick = () => {
+      document.getElementById("notifyPanel").classList.toggle("hidden");
+    };
+
+    // USER MENU TOGGLE
+    document.getElementById("userBtn").onclick = () => {
+      document.getElementById("userMenu").classList.toggle("hidden");
+    };
+
+    // CHARTS
+    const learningChart = new Chart(document.getElementById("learningChart"), {
+      type: "line",
+      data: {
+        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        datasets: [{ data: [10, 20, 25, 40, 50, 60, 75], borderWidth: 3 }]
+      }
+    });
+
+    const financeChart = new Chart(document.getElementById("financeChart"), {
+      type: "bar",
+      data: {
+        labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+        datasets: [{ data: [50, 55, 60, 70, 78] }]
+      }
+    });
+
+      // GEMINI AI TIP
+  async function fetchAiTip() {
+    const tipText = document.getElementById("aiTip");
+    tipText.innerText = "Thinking... 🤔";
+
+    try {
+      const res = await fetch(
+        "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyCwBCA3GoL0VQuj0dkwaQzeL4AQ0YgVmus",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [
+              { parts: [{ text: "Give a short daily financial wisdom tip for young Africans." }] }
+            ]
+          })
+        }
+      );
+
+      const data = await res.json();
+      const aiResponse = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+      tipText.innerText = aiResponse || "Couldn't load the tip.";
+    } catch (e) {
+      tipText.innerText = "Error fetching tip.";
+    }
+  }
+
+  document.getElementById("refreshTip").onclick = fetchAiTip;
+  fetchAiTip(); // Load immediately
+
+
+  // PROFILE MODAL
+  const profileBtn = document.getElementById("userBtn"); // from your navbar
+  const modal = document.getElementById("profileModal");
+  const closeModal = document.getElementById("closeModal");
+
+  profileBtn.onclick = () => modal.classList.remove("hidden");
+  closeModal.onclick = () => modal.classList.add("hidden");
+  </script>
+  
+  <!-- HAMBURGER JS -->
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+
+</body>
+</html>

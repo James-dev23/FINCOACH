@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINCOACH/GAMIFIED LEARNING</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- CUSTOM FONT CLASSES -->
+    <style>
+      .font-montserrat {
+        font-family: "Montserrat", sans-serif;
+      }
+      .font-poppins {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+</head>
+<body>
+    
+ <!-- NAVBAR -->
+    <nav
+      class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur shadow z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center"
+      >
+        <!-- LOGO -->
+        <h1 class="text-xl sm:text-2xl font-montserrat font-bold text-blue-600">
+          FinCoach
+        </h1>
+
+        <!-- DESKTOP MENU -->
+        <div class="hidden md:flex space-x-6 text-gray-700 font-medium">
+          <a href="Index.html" class="hover:text-blue-600">HOME</a>
+          <a href="lessons.html" class="hover:text-blue-600">LESSONS</a>
+          <a href="G-learning.html" class="hover:text-blue-600">GAMIFIED LEARNING</a>
+          <a href="FINCOACH AI.html" class="hover:text-blue-600">FINCOACH AI</a>
+          <a href="Dashboard.html" class="hover:text-blue-600">DASHBOARD</a>
+        </div>
+
+
+        <!-- MOBILE HAMBURGER BUTTON -->
+        <button
+          id="menu-btn"
+          class="md:hidden text-gray-700 focus:outline-none"
+        >
+          <svg
+            class="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- MOBILE MENU -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg w-full">
+        <div
+          class="px-6 py-4 flex flex-col space-y-4 text-gray-700 font-medium"
+        >
+          <a href="Index.html" class="hover:text-blue-600">HOME</a>
+          <a href="lessons.html" class="hover:text-blue-600">LESSONS</a>
+          <a href="#how" class="hover:text-blue-600">GAMIFIED LEARNING</a>
+          <a href="FINCOACH AI.html" class="hover:text-blue-600">FINCOACH AI</a>
+          <a href="Dashboard.html" class="hover:text-blue-600">DASHBOARD</a>
+        
+        </div>
+      </div>
+    </nav>
+
+    <!-- GAMIFIED LEARNING PAGE -->
+<section class="min-h-screen bg-gray-50 pt-32 pb-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+    <!-- Header -->
+    <div class="text-center">
+      <h1 class="text-3xl sm:text-4xl font-montserrat font-bold text-blue-600">
+        Gamified Learning Experience
+      </h1>
+      <p class="text-gray-600 mt-3 text-base sm:text-lg max-w-2xl mx-auto">
+        Stay motivated while learning! Earn XP points, unlock badges, complete challenges, and compete on
+        leaderboards — all while improving your financial literacy.
+      </p>
+    </div>
+
+    <!-- XP / Level Section -->
+    <div class="bg-white p-8 shadow-lg rounded-2xl">
+      <h2 class="text-2xl font-semibold text-blue-600 mb-4">Your XP Points & Level</h2>
+
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <!-- XP -->
+        <div>
+          <p class="font-medium text-gray-700">Current XP: <span class="text-blue-600 font-bold">2,450 XP</span></p>
+          <p class="text-gray-500 text-sm">Earn XP by completing lessons, quizzes, and challenges.</p>
+        </div>
+
+        <!-- Level -->
+        <div class="text-right">
+          <p class="font-medium text-gray-700">Your Level: <span class="text-blue-600 font-bold">Level 8</span></p>
+          <p class="text-gray-500 text-sm">Keep going! Level up to unlock rewards 🎉</p>
+        </div>
+      </div>
+
+      <!-- XP Progress Bar -->
+      <div class="w-full bg-gray-200 h-3 rounded-full mt-4">
+        <div class="bg-blue-600 h-3 rounded-full" style="width: 65%;"></div>
+      </div>
+      <p class="text-right text-gray-500 text-sm mt-1">65% to Level 9</p>
+    </div>
+
+    <!-- BADGES SECTION -->
+    <h2 class="text-2xl sm:text-3xl font-bold text-blue-600 mt-16">Badges</h2>
+    <p class="text-gray-600">Collect badges as you complete lessons and challenges.</p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6 mt-8">
+
+      <!-- Unlocked Badges -->
+      <div class="bg-white p-5 rounded-xl shadow-md text-center hover:shadow-lg transition">
+        <p class="text-4xl">🏅</p>
+        <h4 class="font-semibold mt-2">Saver I</h4>
+        <p class="text-xs text-gray-500">Completed 3 lessons</p>
+      </div>
+
+      <div class="bg-white p-5 rounded-xl shadow-md text-center hover:shadow-lg transition">
+        <p class="text-4xl">💡</p>
+        <h4 class="font-semibold mt-2">Smart Thinker</h4>
+        <p class="text-xs text-gray-500">Asked 5 AI questions</p>
+      </div>
+
+      <!-- Locked Badges -->
+      <div class="bg-gray-200 p-5 rounded-xl text-center opacity-60 cursor-not-allowed">
+        <p class="text-4xl">🔒</p>
+        <h4 class="font-semibold mt-2">Investor I</h4>
+        <p class="text-xs text-gray-500">Locked</p>
+      </div>
+
+      <div class="bg-gray-200 p-5 rounded-xl text-center opacity-60 cursor-not-allowed">
+        <p class="text-4xl">🔒</p>
+        <h4 class="font-semibold mt-2">Budget Master</h4>
+        <p class="text-xs text-gray-500">Locked</p>
+      </div>
+
+      <div class="bg-gray-200 p-5 rounded-xl text-center opacity-60 cursor-not-allowed">
+        <p class="text-4xl">🔒</p>
+        <h4 class="font-semibold mt-2">Savings Pro</h4>
+        <p class="text-xs text-gray-500">Locked</p>
+      </div>
+
+      <div class="bg-gray-200 p-5 rounded-xl text-center opacity-60 cursor-not-allowed">
+        <p class="text-4xl">🔒</p>
+        <h4 class="font-semibold mt-2">Money Genius</h4>
+        <p class="text-xs text-gray-500">Locked</p>
+      </div>
+
+    </div>
+
+    <!-- Achievements -->
+    <div>
+      <h2 class="text-2xl font-semibold text-blue-600 mb-4">Achievements</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="bg-white p-6 rounded-xl shadow">
+          <h3 class="font-bold text-gray-800 mb-2">🏆 Beginner Milestone</h3>
+          <p class="text-gray-500 text-sm">Complete your first week of financial education.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow">
+          <h3 class="font-bold text-gray-800 mb-2">📈 Financial Warrior</h3>
+          <p class="text-gray-500 text-sm">Reach a financial health score of 70+.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow">
+          <h3 class="font-bold text-gray-800 mb-2">💰 Savings Pro</h3>
+          <p class="text-gray-500 text-sm">Successfully complete saving challenges for 4 weeks.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- WEEKLY CHALLENGES -->
+    <h2 class="text-2xl sm:text-3xl font-bold text-blue-600 mt-16">Weekly Challenges</h2>
+    <p class="text-gray-600">Complete tasks to earn more XP and badges.</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <h3 class="font-semibold text-gray-800">Savings Challenge</h3>
+        <p class="text-sm text-gray-600 mt-1">Save ₦500 daily for the next 7 days.</p>
+        <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Join Challenge</button>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <h3 class="font-semibold text-gray-800">Budget Habit Challenge</h3>
+        <p class="text-sm text-gray-600 mt-1">Track your expenses for 5 days.</p>
+        <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Join Challenge</button>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+        <h3 class="font-semibold text-gray-800">Financial Quiz Challenge</h3>
+        <p class="text-sm text-gray-600 mt-1">Answer 10 financial questions.</p>
+        <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Join Challenge</button>
+      </div>
+
+    </div>
+
+
+    <!-- Quizzes -->
+    <div>
+      <h2 class="text-2xl font-semibold text-blue-600 mb-4">Quick Quizzes</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <div class="bg-white p-6 rounded-xl shadow">
+          <h3 class="font-bold text-gray-800 mb-2">Budgeting Basics Quiz</h3>
+          <p class="text-gray-500 text-sm mb-4">Test your knowledge and earn up to 200 XP.</p>
+          <button class="bg-blue-600 text-white px-5 py-2 rounded-lg w-full">Start Quiz</button>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow">
+          <h3 class="font-bold text-gray-800 mb-2">Understanding Savings</h3>
+          <p class="text-gray-500 text-sm mb-4">Answer 10 quick questions to earn rewards.</p>
+          <button class="bg-blue-600 text-white px-5 py-2 rounded-lg w-full">Start Quiz</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Leaderboard -->
+    <div>
+      <h2 class="text-2xl font-semibold text-blue-600 mb-4">Leaderboard</h2>
+
+      <div class="bg-white rounded-xl shadow divide-y">
+
+        <div class="p-4 flex justify-between">
+          <span class="font-medium">1. Amanda</span>
+          <span class="text-blue-600 font-bold">5,600 XP</span>
+        </div>
+
+        <div class="p-4 flex justify-between">
+          <span class="font-medium">2. David</span>
+          <span class="text-blue-600 font-bold">4,800 XP</span>
+        </div>
+
+        <div class="p-4 flex justify-between">
+          <span class="font-medium">3. Blessing</span>
+          <span class="text-blue-600 font-bold">4,200 XP</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Financial Health Score -->
+    <div>
+      <h2 class="text-2xl font-semibold text-blue-600 mb-4">Your Financial Health Score</h2>
+      <div class="bg-white p-8 rounded-xl shadow">
+
+        <p class="text-gray-700 font-medium mb-2">Current Score: <span class="font-bold text-blue-600">72 / 100</span></p>
+        <div class="w-full bg-gray-200 h-3 rounded-full">
+          <div class="bg-green-500 h-3 rounded-full" style="width: 72%;"></div>
+        </div>
+
+        <p class="text-gray-500 text-sm mt-3">
+          Keep improving by completing lessons, tracking expenses, and completing financial challenges.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- HAMBURGER JS -->
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+</body>
+</html>

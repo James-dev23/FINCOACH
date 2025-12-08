@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINCOACH/LESSONS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- CUSTOM FONT CLASSES -->
+    <style>
+      .font-montserrat {
+        font-family: "Montserrat", sans-serif;
+      }
+      .font-poppins {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+</head>
+<body>
+
+      <!-- NAVBAR -->
+    <nav
+      class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur shadow z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center"
+      >
+        <!-- LOGO -->
+        <h1 class="text-xl sm:text-2xl font-montserrat font-bold text-blue-600">
+          FinCoach
+        </h1>
+
+        <!-- DESKTOP MENU -->
+        <div class="hidden md:flex space-x-6 text-gray-700 font-medium">
+          <a href="Index.html" class="hover:text-blue-600">HOME</a>
+          <a href="lessons.html" class="hover:text-blue-600">LESSONS</a>
+          <a href="G-learning.html" class="hover:text-blue-600">GAMIFIED LEARNING</a>
+          <a href="FINCOACH AI.html" class="hover:text-blue-600">FINCOACH AI</a>
+          <a href="Dashboard.html" class="hover:text-blue-600">DASHBOARD</a>
+        </div>
+
+
+        <!-- MOBILE HAMBURGER BUTTON -->
+        <button
+          id="menu-btn"
+          class="md:hidden text-gray-700 focus:outline-none"
+        >
+          <svg
+            class="w-7 h-7"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- MOBILE MENU -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg w-full">
+        <div
+          class="px-6 py-4 flex flex-col space-y-4 text-gray-700 font-medium"
+        >
+          <a href="Index.html" class="hover:text-blue-600">HOME</a>
+          <a href="lessons.html" class="hover:text-blue-600">LESSONS</a>
+          <a href="G-learning.html" class="hover:text-blue-600">GAMIFIED LEARNING</a>
+          <a href="FINCOACH AI.html" class="hover:text-blue-600">FINCOACH AI</a>
+          <a href="Dashboard.html" class="hover:text-blue-600">DASHBOARD</a>
+        
+        </div>
+      </div>
+    </nav>
+    
+  <!-- LESSON PAGE -->
+<section class="min-h-screen bg-gray-50 pt-28 pb-10">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+    <!-- HEADER -->
+    <div class="text-center mb-10">
+      <h1 class="text-2xl sm:text-3xl font-bold text-blue-600 font-montserrat">
+        Understanding Savings: The Beginner Level
+      </h1>
+      <p class="text-gray-500 text-sm mt-2">Micro-Lesson • 3 Minutes</p>
+    </div>
+
+    <!-- PROGRESS BAR -->
+    <div class="w-full bg-gray-200 rounded-full h-3 mb-10">
+      <div class="bg-blue-600 h-3 rounded-full" style="width: 30%;"></div>
+    </div>
+
+    <!-- LESSON CONTENT CARD -->
+    <div class="bg-white shadow-lg rounded-2xl p-6 sm:p-8 mb-10">
+      <h2 class="text-xl font-semibold text-gray-800 mb-4">What You Will Learn</h2>
+
+      <p class="text-gray-600 leading-relaxed">
+        Savings is the habit of setting aside money for future needs. It helps you build
+        financial discipline, avoid unnecessary debt, and prepare for emergencies.
+        In this micro-lesson, you'll learn the basic principles of saving and how
+        to apply them to your everyday life as a student, entrepreneur, or young earner.
+      </p>
+
+      <ul class="list-disc pl-5 space-y-2 mt-4 text-gray-600">
+        <li>Why savings is the foundation of financial stability</li>
+        <li>How much you should save weekly or monthly</li>
+        <li>Simple strategies to avoid overspending</li>
+        <li>How FinCoach helps you build a savings habit</li>
+      </ul>
+    </div>
+
+    <!-- AI HINT BOX -->
+    <div class="bg-blue-50 border border-blue-200 p-5 rounded-xl mb-10">
+      <h3 class="font-semibold text-blue-700">💡 FinCoach Tip</h3>
+      <p class="mt-2 text-gray-700 text-sm">
+        “Start by saving just 10% of any money you receive. As you get comfortable,
+        slowly increase it to 20–30%. Consistency is more important than amount.”
+      </p>
+    </div>
+
+    <!-- GAMIFIED SECTION -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14">
+
+      <div class="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-lg transition">
+        <p class="text-3xl font-bold text-yellow-500">⭐</p>
+        <h4 class="mt-2 font-semibold text-gray-800">Earned XP</h4>
+        <p class="text-gray-600 text-sm">+20 points for completing this lesson</p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-lg transition">
+        <p class="text-3xl font-bold text-blue-600">🔥</p>
+        <h4 class="mt-2 font-semibold text-gray-800">Daily Streak</h4>
+        <p class="text-gray-600 text-sm">You're on a 4-day learning streak!</p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-lg transition">
+        <p class="text-3xl font-bold text-green-600">🏅</p>
+        <h4 class="mt-2 font-semibold text-gray-800">Badge Earned</h4>
+        <p class="text-gray-600 text-sm">Savings Beginner Badge</p>
+      </div>
+
+    </div>
+
+    <!-- NAVIGATION BUTTONS -->
+    <div class="flex justify-between mt-10">
+
+      <button class="px-6 py-3 bg-gray-200 hover:bg-gray-300 rounded-xl font-semibold text-gray-700 transition">
+        ← Previous
+      </button>
+
+      <button class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl font-semibold text-white transition">
+        Next Lesson →
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- HAMBURGER JS -->
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+</body>
+</html>
